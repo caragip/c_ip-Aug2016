@@ -3,11 +3,10 @@
  */
 
 /**
- * @author Cara Ip
- * Date: 
+ * @author APCS1
  *
  */
-public class FtoC {
+public class DoMath {
 
 	/**
 	 * @param args

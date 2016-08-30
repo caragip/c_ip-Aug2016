@@ -6,7 +6,7 @@
  * @author APCS1
  *
  */
-public class TestCode {
+public class FtoC {
 
 	/**
 	 * @param args
