@@ -13,7 +13,7 @@ public class DoMath {
 	 */
 	public static void main(String[] args) {
 		
-		int answer = Calculate.max3(2, 3, 4);
+		String answer = Calculate.foil(2, 3, 4, 5, "n");
 		System.out.println(answer);
 
 	}
