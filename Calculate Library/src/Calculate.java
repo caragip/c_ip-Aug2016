@@ -1,4 +1,3 @@
-
 public class Calculate {
 	
 
@@ -7,33 +6,95 @@ public class Calculate {
 		answer = number * number;
 		return answer;
 	}
-	public int cube(int number) {
+	public static int cube(int number) {
 		int answer;
 		answer = number * number * number;
 		return answer;			
 	}
-	public double average(double num1, double num2) {
+	public static double average(double num1, double num2) {
 		double answer;
 		answer = (num1 * num2 ) / 2;
 		return answer;	
 	}
-	public double average2(double num1, double num2, double num3) {
+	public static double average2(double num1, double num2, double num3) {
 		double answer;
 		answer = (num1 * num2 * num3 ) / 3;
 		return answer;
 	}
-	public double toDegrees(double number) {
+	public static double toDegrees(double number) {
 		double answer;
 		answer = ((number * 180) / 3.14159);
 		return answer;
 	}
 	
-	public double toRadians(dobule number) {
+	public static double toRadians(double number) {
 		double answer;
 		answer = ((number * 3.14159) / 180);
+		return answer;
 	}
-	public discriminant () {
+	public static double discriminant (double a, double b, double c) {
 		double answer;
+		answer = ((b * b) - (4 * a * c));
+		return answer;
 	}
 
+	public static String toImproperFrac(int a, int b, int c){
+		int numerator = a * b + c;
+		return (numerator + "/" + c);
+	}
+	public static String toMixedNum(int a, int b) {
+		int num = a / b;
+		int num2 = a % b;
+		return (num + "_" + num2 + "/" + b);		
+	}
+	public static String foil (int a, int b, int c, int d, String n) {
+		return(a * c + n + '^2' + ((a *d) +(b*c)) + n + (b*d));	
+	}
+	public static boolean isDivisibleBy(int a, int b) {
+		if (a % b == 0) {
+			return true;
+		} else { 
+			return false;
+		}
+	}
+	public double absValue (double num){
+		if (num < 0) {
+			return(Math.abs(num));
+		} else {
+			return num;
+		}
+	}
+	public static int max(int a, int b) {
+		if (a < b) {
+			return b;
+		} else {
+			return a;
+		}
+	}
+	public static int min(int a, int b) {
+		if (a < b) {
+			return a;
+		} else {
+			return b;
+		}
+	}
+	public static int max3(int a, int b, int c) {
+		if (b > a) {
+			if (b > c) {
+				return b;
+			} else if (c > b) {
+				return c;
+				}
+		if (a > b) {
+			}if ( a > b) {
+				}if (a > c) {
+					return a;
+				} else if (c > a) {
+					return c;
+					}
+				
+		}
+		public static round2(double num) {	
+			
+		}
 }
