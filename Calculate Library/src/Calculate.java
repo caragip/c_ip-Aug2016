@@ -58,7 +58,7 @@ public class Calculate {
 			return false;
 		}
 	}
-	public double absValue (double num){
+	public static double absValue (double num){
 		if (num < 0) {
 			return(Math.abs(num));
 		} else {
@@ -87,6 +87,9 @@ public class Calculate {
 		} else {
 			return c;
 		}
+	}
+	public static double round2(double num) {
+		
 	}
 }
 

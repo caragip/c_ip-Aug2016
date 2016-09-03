@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+
+/**
+ * @author APCS1
+ *
+ */
+public class DoMath {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		double answer = Calculate.average(2.0, 3.0);
+		System.out.println(answer);
+
+	}
+
+	
+
+}
