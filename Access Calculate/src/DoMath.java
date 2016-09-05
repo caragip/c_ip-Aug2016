@@ -12,7 +12,7 @@ public class DoMath {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		double answer = Calculate.min(0, 5);
+		double answer = Calculate.round2(8.432);
 		System.out.println(answer);
 
 	}
