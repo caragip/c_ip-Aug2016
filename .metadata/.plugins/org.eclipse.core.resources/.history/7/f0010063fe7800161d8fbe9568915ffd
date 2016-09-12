@@ -88,5 +88,20 @@ public class Calculate {
 			return c;
 		}
 	}
+	public static double round2(double num) {
+		double movenum = num * 100;
+		int intnum = (int)movenum;
+		double diff = movenum - intnum;
+		if (diff > 0.5) {
+			intnum = intnum + 1;
+			double doublenum = (double)intnum / 100;
+			return doublenum;
+		} else {
+			double doublenum = (double)intnum / 100;
+			return doublenum;
+		}
+	}
+
+		
 }
 
