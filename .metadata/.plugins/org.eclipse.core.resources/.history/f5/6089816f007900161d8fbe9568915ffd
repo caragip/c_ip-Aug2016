@@ -102,7 +102,7 @@ public class Calculate {
 		}
 	}
 	public static double exponent(int base, double power) {
-		
+		answer 
 	}
 	public static int isPrime(int num) {
 		
@@ -111,8 +111,6 @@ public class Calculate {
 	
 	}
 	public static double sqrt(double num) {
-		double a; 
-		double square = number / 2;
 		
 	}
 		
