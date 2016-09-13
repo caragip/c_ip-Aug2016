@@ -101,18 +101,53 @@ public class Calculate {
 			return doublenum;
 		}
 	}
-	public static double exponent(int base, double power) {
-		
+	public static double exponent(double a, int b){
+		double c = a;
+		while( b > 1) {
+			c = c*a;
+			b--;
+		}
+		return c;
 	}
-	public static int isPrime(int num) {
-		
+	public static int factorial(int a){
+		int c = 1;
+		while(a > 1){
+			c =  c * a;
+			a--;
+		}
+		return c;
 	}
-	public static int gcf(int num1, int num2) {
+
+	public static boolean isPrime( int a) {
+		for(int count = 2; count < a; count++){
+			if (Calculate.isDivisibleBy(a, count) == true){
+				return false;
+			}
+		}
+		return true;
+	}
+	public static int gcf(int a, int b) {
+		int c;
+		while (b != 0) {
+			c = a % b;
+			a = b;
+			b = c;
+			if (a < 0) {
+				a = a * (-1);
+			}
+					
+		}
+		return a;
 	
 	}
-	public static double sqrt(double num) {
-		double a; 
-		double square = number / 2;
+	public static double sqrt(double a) {
+		double b;
+		double squareRoot = a / 2;
+		do {
+			b = squareRoot;
+			squareRoot = (b + (a / b)) / 2;
+		} while ((a - squareRoot) != 0);
+		return Calculate.round2(squareRoot);
 		
 	}
 		
