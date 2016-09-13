@@ -52,6 +52,9 @@ public class Calculate {
 		return answer;
 	}
 	public static boolean isDivisibleBy(int a, int b) {
+		if (b == 0) {
+			throw new IllegalArgumentException("Dividing by zero is undefined. Enter a number that is not zero.");
+		}
 		if (a % b == 0) {
 			return true;
 		} else { 
@@ -102,8 +105,15 @@ public class Calculate {
 		}
 	}
 	public static double exponent(double a, int b){
+		if( b < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero."); 
+		}
+		double x = 1.0;
 		double c = a;
-		while( b > 1) {
+		while( b >= 0) {
+			if (b == 0) {
+				return x;
+			}
 			c = c*a;
 			b--;
 		}
@@ -111,6 +121,9 @@ public class Calculate {
 	}
 	public static int factorial(int a){
 		int c = 1;
+		if (a < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero.");
+		}
 		while(a > 1){
 			c =  c * a;
 			a--;
@@ -140,6 +153,9 @@ public class Calculate {
 		return a;
 	}
 	public static double sqrt(double a) {
+		if (a < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero.");
+		}
 		double b;
 		double squareRoot = a / 2;
 		do {
@@ -149,6 +165,7 @@ public class Calculate {
 		return Calculate.round2(squareRoot);
 		
 	}
+
 		
 }
 
