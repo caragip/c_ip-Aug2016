@@ -101,7 +101,20 @@ public class Calculate {
 			return doublenum;
 		}
 	}
-
+	public static double exponent(int base, double power) {
+		
+	}
+	public static int isPrime(int num) {
+		
+	}
+	public static int gcf(int num1, int num2) {
+	
+	}
+	public static double sqrt(double num) {
+		double a; 
+		double square = number / 2;
+		
+	}
 		
 }
 
