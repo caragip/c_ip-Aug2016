@@ -138,6 +138,7 @@ public class Calculate {
 					
 		}
 		return a;
+	
 	}
 	public static double sqrt(double a) {
 		double b;
