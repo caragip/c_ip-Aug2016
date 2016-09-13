@@ -6,14 +6,17 @@
  * @author APCS1
  *
  */
-public class FtoC {
+public class DoMath {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		double answer = Calculate.round2(8.432);
+		System.out.println(answer);
 
 	}
+
+	
 
 }
