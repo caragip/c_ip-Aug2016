@@ -139,18 +139,22 @@ public class Calculate {
 		}
 		return true;
 	}
-	public static int gcf(int a, int b) {
+	public static int gcf(int a, int b){
 		int c;
-		while (b != 0) {
+		while (b!=0){
 			c = a % b;
-			a = b;
-			b = c;
-			if (a < 0) {
-				a = a * (-1);
-			}
-					
+			a=b;
+			b=c;
 		}
-		return a;
+			if(a == 0){
+				return (int) Calculate.absValue(b);
+			}
+			else if (b == 0){
+				return (int) Calculate.absValue(a);
+			}
+			else{
+				return a;
+			}
 	}
 	public static double sqrt(double a) {
 		if (a < 0) {
