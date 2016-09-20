@@ -9,7 +9,7 @@
  */
 public class FtoC {
 	public static void main(String[] args) {
-		int fahrenheit = 50;
+		int fahrenheit = 32;
 		int celsius = (((fahrenheit - 32)*5)/9);
 		System.out.println(celsius);
 	}

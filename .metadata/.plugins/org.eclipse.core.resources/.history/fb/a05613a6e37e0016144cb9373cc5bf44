@@ -8,9 +8,15 @@
  * This program converts degrees in Fahrenheit to Celsius.
  */
 public class FtoC {
-	public static void main(String[] args) {
-		int fahrenheit = 50;
+	public static int fahrenheitToCelsius(int i) {
+		int fahrenheit = 32;
 		int celsius = (((fahrenheit - 32)*5)/9);
-		System.out.println(celsius);
+		return celsius;
 	}
+	public static void main(String[] args) {
+		int celsius = fahrenheitToCelsius(50);
+		System.out.println(celsius);
+	
+	}
+
 }
