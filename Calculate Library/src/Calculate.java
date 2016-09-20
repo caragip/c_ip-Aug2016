@@ -27,10 +27,10 @@ public class Calculate {
 		return answer;
 	}
 	
-	public static double toRadians(double number) {
-		double answer;
-		answer = ((number * 3.14159) / 180);
-		return answer;
+	public static double toRadians(double degrees) {
+		double radians;
+		radians = ((degrees * 3.14159) / 180);
+		return radians;
 	}
 	public static double discriminant (double a, double b, double c) {
 		double answer;
