@@ -104,20 +104,19 @@ public class Calculate {
 			return doublenum;
 		}
 	}
-	public static double exponent(double a, int b){
-		if( b < 0) {
+	public static double exponent(double base, int power){
+		if( power < 0) {
 			throw new IllegalArgumentException("Enter a number that is greater or equal to zero."); 
 		}
-		double x = 1.0;
-		double c = a;
-		while( b >= 0) {
-			if (b == 0) {
-				return x;
+		double answer = base;
+		while( power >= 0) {
+			if (power == 0) {
+				return 1.0;
 			}
-			c = c*a;
-			b--;
+			answer = answer*base;
+			power--;
 		}
-		return c;
+		return answer;
 	}
 	public static int factorial(int a){
 		int c = 1;

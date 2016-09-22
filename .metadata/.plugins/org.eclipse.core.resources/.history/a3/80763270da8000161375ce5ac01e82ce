@@ -21,10 +21,10 @@ public class Calculate {
 		answer = (num1 * num2 * num3 ) / 3;
 		return answer;
 	}
-	public static double toDegrees(double radians) {
-		double degrees;
-		degrees = ((radians * 180) / 3.14159);
-		return degrees;
+	public static double toDegrees(double number) {
+		double answer;
+		answer = ((number * 180) / 3.14159);
+		return answer;
 	}
 	
 	public static double toRadians(double degrees) {
@@ -51,21 +51,21 @@ public class Calculate {
 		String answer = (a * c + n + "^2" + " + " + ((a *d) +(b*c)) + n + " + " + (b*d));	
 		return answer;
 	}
-	public static boolean isDivisibleBy(int dividend, int divisor) {
-		if (divisor == 0) {
+	public static boolean isDivisibleBy(int a, int b) {
+		if (b == 0) {
 			throw new IllegalArgumentException("Dividing by zero is undefined. Enter a number that is not zero.");
 		}
-		if (dividend % divisor == 0) {
+		if (a % b == 0) {
 			return true;
 		} else { 
 			return false;
 		}
 	}
-	public static double absValue (double number){
-		if (number < 0) {
-			return(Math.abs(number));
+	public static double absValue (double num){
+		if (num < 0) {
+			return(Math.abs(num));
 		} else {
-			return number;
+			return num;
 		}
 	}
 	public static int max(int a, int b) {
