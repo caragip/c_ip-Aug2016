@@ -1,0 +1,175 @@
+public class Calculate {
+	
+
+	public static int square(int number) {
+		int answer;
+		answer = number * number;
+		return answer;
+	}
+	public static int cube(int number) {
+		int answer;
+		answer = number * number * number;
+		return answer;			
+	}
+	public static double average(double num1, double num2) {
+		double answer;
+		answer = (num1 * num2 ) / 2;
+		return answer;	
+	}
+	public static double average2(double num1, double num2, double num3) {
+		double answer;
+		answer = (num1 * num2 * num3 ) / 3;
+		return answer;
+	}
+	public static double toDegrees(double radians) {
+		double degrees;
+		degrees = ((radians * 180) / 3.14159);
+		return degrees;
+	}
+	
+	public static double toRadians(double degrees) {
+		double radians;
+		radians = ((degrees * 3.14159) / 180);
+		return radians;
+	}
+	public static double discriminant (double a, double b, double c) {
+		double answer;
+		answer = ((b * b) - (4 * a * c));
+		return answer;
+	}
+
+	public static String toImproperFrac(int a, int b, int c){
+		int numerator = a * b + c;
+		return (numerator + "/" + c);
+	}
+	public static String toMixedNum(int a, int b) {
+		int num = a / b;
+		int num2 = a % b;
+		return (num + "_" + num2 + "/" + b);		
+	}
+	public static String foil (int a, int b, int c, int d, String n) {
+		String answer = (a * c + n + "^2" + " + " + ((a *d) +(b*c)) + n + " + " + (b*d));	
+		return answer;
+	}
+	public static boolean isDivisibleBy(int dividend, int divisor) {
+		if (divisor == 0) {
+			throw new IllegalArgumentException("Dividing by zero is undefined. Enter a number that is not zero.");
+		}
+		if (dividend % divisor == 0) {
+			return true;
+		} else { 
+			return false;
+		}
+	}
+	public static double absValue (double number){
+		if (number < 0) {
+			return(Math.abs(number));
+		} else {
+			return number;
+		}
+	}
+	public static int max(int a, int b) {
+		if (a < b) {
+			return b;
+		} else {
+			return a;
+		}
+	}
+	public static int min(int a, int b) {
+		if (a < b) {
+			return a;
+		} else {
+			return b;
+		}
+	}
+	public static int max3(int a, int b, int c) {
+		if (a > b && a > c) {
+			return a;
+		} else if (b > a &&  b> c) {
+			return b;
+		} else {
+			return c;
+		}
+	}
+	public static double round2(double num) {
+		double movenum = num * 100;
+		int intnum = (int)movenum;
+		double diff = movenum - intnum;
+		if (diff > 0.5) {
+			intnum = intnum + 1;
+			double doublenum = (double)intnum / 100;
+			return doublenum;
+		} else {
+			double doublenum = (double)intnum / 100;
+			return doublenum;
+		}
+	}
+	public static double exponent(double a, int b){
+		if( b < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero."); 
+		}
+		double x = 1.0;
+		double c = a;
+		while( b >= 0) {
+			if (b == 0) {
+				return x;
+			}
+			c = c*a;
+			b--;
+		}
+		return c;
+	}
+	public static int factorial(int a){
+		int c = 1;
+		if (a < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero.");
+		}
+		while(a > 1){
+			c =  c * a;
+			a--;
+		}
+		return c;
+	}
+
+	public static boolean isPrime( int a) {
+		for(int count = 2; count < a; count++){
+			if (Calculate.isDivisibleBy(a, count) == true){
+				return false;
+			}
+		}
+		return true;
+	}
+	public static int gcf(int a, int b){
+		int c;
+		while (b!=0){
+			c = a % b;
+			a=b;
+			b=c;
+		}
+			if(a == 0){
+				return (int) Calculate.absValue(b);
+			}
+			else if (b == 0){
+				return (int) Calculate.absValue(a);
+			}
+			else{
+				return a;
+			}
+	}
+	public static double sqrt(double a) {
+		if (a < 0) {
+			throw new IllegalArgumentException("Enter a number that is greater or equal to zero.");
+		}
+		double b;
+		double squareRoot = a / 2;
+		do {
+			b = squareRoot;
+			squareRoot = (b + (a / b)) / 2;
+		} while ((a - squareRoot) != 0);
+		return Calculate.round2(squareRoot);
+		
+	}
+
+		
+}
+
