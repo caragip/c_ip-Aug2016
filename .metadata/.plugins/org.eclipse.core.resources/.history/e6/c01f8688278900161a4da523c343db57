@@ -6,15 +6,8 @@ import java.util.Scanner;
 
 /**
  * @author Cara Ip
- * October 3, 2016
- * APCS 1st period
- * 
  * Pair Programming Activity
- * 
- * Takes in String input and finds the smallest number, largest number,
- * largest even number, as well as the sum of all the even numbers.
- * 
- * 
+ * Takes in String input and finds 
  */
 public class ProcessingNumbers {
 
