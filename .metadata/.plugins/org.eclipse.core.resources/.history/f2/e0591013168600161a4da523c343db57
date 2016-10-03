@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+/**
+ * 
+ */
+
+/**
+ * @author Cara Ip
+ *
+ */
+public class ProcessingNumbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Please enter 4 numbers separated by spaces: ");
+		int num1 = userInput.nextInt();
+		int num2 = userInput.nextInt();
+		int num3 = userInput.nextInt();
+		int num4 = userInput.nextInt();
+		int largestNum = num1;
+		int smallestNum = num1;
+	}
+}

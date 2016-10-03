@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+/**
+ * 
+ */
+
+/**
+ * @author Cara Ip
+ *
+ */
+public class ProcessingNumbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Please enter 4 numbers separated by spaces: ");
+		int num1 = userInput.nextInt();
+		int num2 = userInput.nextInt();
+		int num3 = userInput.nextInt();
+		int num4 = userInput.nextInt();
+		int largestNum = num1;
+		int smallestNum = num1;
+		if (num2 > largestNum) { 
+			largestNum = num2;
+		} else if (num3 > largestNum) {
+			largestNum = num3;
+		} else if (num4 > largestNum) {
+			largestNum = num4;
+		}
+		System.out.println(largestNum);
+		if (num2 < smallestNum) { 
+			smallestNum = num2;
+		} else if (num3 < smallestNum) {
+			smallestNum = num3;
+		} else if (num4 < smallestNum) {
+			smallestNum = num4;
+		}	
+		System.out.println(smallestNum);
+		int counter = 0;
+		if (num1 % 2 == 0) {
+			counter += num1;
+		} else if (num2 % 2 == 0) {
+			counter += num2;
+		} else if (num3 % 2 == 0) {
+			counter += num3;
+		} else if (num4 % 2 == 0) {
+			counter += num4;
+		}
+		System.out.println(counter);
+	}
+}
+
+

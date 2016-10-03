@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+/**
+ * 
+ */
+
+/**
+ * @author Cara Ip
+ * Pair Programming Activity
+ * Takes in String input and finds 
+ */
+public class ProcessingNumbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Scanner userInput = new Scanner (System.in);
+		int min = Integer.MIN_VALUE;
+		int max = Integer.MIN_VALUE;
+		int evenSum = 0;
+		int evenMax = Integer.MIN_VALUE;
+		System.out.println("How many numbers do you want to give?");
+		int counter = userInput.nextInt();
+		for (int num = 0; num < counter; num++) {
+			System.out.println("Enter the next number.");
+			int nextNum = userInput.nextInt();
+			if (nextNum % 2 == 0) {
+				evenSum += nextNum;
+				if (nextNum > evenMax){
+					evenMax = nextNum;
+				}
+			}
+			if (nextNum > max) {
+				max = nextNum;
+			}
+			if (nextNum < min) {
+				min = nextNum;
+			}
+		}
+		System.out.println("The largest number is " + max);
+		System.out.println("The smallest number is " + min);
+		System.out.println("The largest even number is " + evenMax);
+		System.out.println("The sum of all the even numbers is " + evenSum);
+	}
+}
