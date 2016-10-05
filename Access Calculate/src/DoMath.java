@@ -10,7 +10,7 @@
  */
 public class DoMath {
 	public static void main(String[] args) {
-		double answer = Calculate.sqrt(4);
+		String answer = Calculate.quadForm(1,0,-14);
 		System.out.println(answer);
 		
 

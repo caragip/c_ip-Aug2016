@@ -205,7 +205,7 @@ public class Calculate {
 		int gcf = 1;
 		for (int i = 1; i <= num1; i++ ) {
 			if(isDivisibleBy(num1, i) && isDivisibleBy(num2, i)) {
-				gcf = 1;
+				gcf = i;
 			}
 		}
 		return gcf;
@@ -229,26 +229,28 @@ public class Calculate {
 	 * It accepts three integers and returns a String. 
 	 */
 	public static String quadForm(int a, int b, int c){ 
-		double answer1;
-		double answer2;
+		double root1;
+		double root2;
 		if(Calculate.discriminant(a, b, c) < 0){ 
 			return "no real roots";
 		} 
 		else if(Calculate.discriminant(a, b, c) == 0) { 
-			answer1 = Calculate.round2((b + Calculate.discriminant(a, b, c)) / 2*a);
-			return "" + answer1;
+			root1 = (-b/(2*a));
+			return "" + root1;
 		}
 		else{
-			answer1 = Calculate.round2((b + Calculate.discriminant(a, b, c)) / 2*a);
-			answer2 = Calculate.round2((b - Calculate.discriminant(a, b, c)) / 2*a);
-			if (answer1>answer2){
-				return answer2 + " and " + answer1;
+			root1 = Calculate.round2((-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			root2 = Calculate.round2((-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			if (root1>root2){
+				return root2 + " and " + root1;
 			}
 			else{
-				return answer1 + " and " + answer2;
+				return root1 + " and " + root2;
 			}
 		}
 		
 }
+	
 }
+
 
