@@ -23,42 +23,34 @@ public class Calculate {
 	 * a double.
 	 */
 	public static double average(double num1, double num2) {
-		return (num1 * num2 ) / 2;
+		return (num1 + num2 ) / 2;
 	}
 	/* Average (three values): This methods returns the average of the
 	 * three values passed into it. It accepts three doubles and 
 	 * returns three doubles.
 	 */
-	public static double average2(double num1, double num2, double num3) {
-		double answer;
-		answer = (num1 * num2 * num3 ) / 3;
-		return answer;
+	public static double average(double num1, double num2, double num3) {
+		return (num1 + num2 + num3 ) / 3;
 	}
 	/* toDegrees: This method converts radians to degrees, 
 	 * with radians passed into it. It accepts a double and returns 
 	 * a double.
 	 */
 	public static double toDegrees(double radians) {
-		double degrees;
-		degrees = ((radians * 180) / 3.14159);
-		return degrees;
+		return ((radians * 180) / 3.14159);
 	}
 	/* toRadians: This method converts degrees to radians, with 
 	 * degrees passed into it. It accepts a double and returns
 	 * a double.
 	 */
 	public static double toRadians(double degrees) {
-		double radians;
-		radians = ((degrees * 3.14159) / 180);
-		return radians;
+		return ((degrees * 3.14159) / 180);
 	}
 	/* Discriminant: This method finds the discriminant of the three values
 	 * passed in. It accepts three doubles and returns a double.
 	 */
 	public static double discriminant (double a, double b, double c) {
-		double answer;
-		answer = ((b * b) - (4 * a * c));
-		return answer;
+		return ((b * b) - (4 * a * c));
 	}
 	/* toImproperFrac : This method converts a mixed number to an improper
 	 * fraction. It accepts three integers and returns a String.
@@ -130,7 +122,7 @@ public class Calculate {
 	/* Max3: This method finds the largest of the three numbers.
 	 * It accepts three integers and returns an integer.
 	 */
-	public static int max3(int num1, int num2, int num3) {
+	public static double max(double num1, double num2, double num3) {
 		if (num1 > num2 && num1 > num3) {
 			return num1;
 		} else if (num2 > num1 &&  num2> num3) {
@@ -239,8 +231,8 @@ public class Calculate {
 			return "" + root1;
 		}
 		else{
-			root1 = Calculate.round2((b + Calculate.discriminant(a, b, c)) / 2*a);
-			root2 = Calculate.round2((b - Calculate.discriminant(a, b, c)) / 2*a);
+			root1 = Calculate.round2((-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			root2 = Calculate.round2((-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
 			if (root1>root2){
 				return root2 + " and " + root1;
 			}

@@ -3,7 +3,7 @@
 // September 24, 2016
 // Math Library
 
-import java.util.*;
+
 public class Calculate {
 	
 	/* Square : This method returns the square of the value passed into it. 
@@ -78,24 +78,7 @@ public class Calculate {
 	 * It accepts four integers and a String and returns a String.
 	 */
 	public static String foil (int a, int b, int c, int d, String n) {
-		String sign1;
-		String sign2;
-		int firstnum = (a*c);
-		int secondnum = ((a *d) +(b*c));
-		int thirdnum = (b*d);
-		if (secondnum <= 0) {
-			secondnum  *= (-1);
-			sign1 = "–";
-		} else {
-			sign1 = "+";
-		}
-		if (thirdnum <= 0) {
-			thirdnum  *= (-1);
-			sign2 = "–";
-		} else {
-			sign2 = "+";
-		}
-		String answer = firstnum + n + "^2" + " " + sign1 + " " + secondnum + n + " " + sign2 + " " + thirdnum;	
+		String answer = ((a * c) + n + "^2" + "+" + ((a *d) +(b*c)) + n + "+" + (b*d));	
 		return answer;
 	}
 	/* isDivisibleBy: This method checks if a number is divisible by 
@@ -153,7 +136,7 @@ public class Calculate {
 			return num3;
 		}
 	}
-	/*Round 2: This method rounds a number to two decimal places. 
+	/*Round 2: This method rounds a nubmer to two decimal places. 
 	 * It accepts a double and returns a double. 
 	 */
 	public static double round2(double num) {
@@ -161,10 +144,12 @@ public class Calculate {
 		int intnum = (int)movenum;
 		double diff = movenum - intnum;
 		if (diff > 0.5) {
-			intnum += 1;
-			return (double)intnum / 100;
+			intnum = intnum + 1;
+			double doublenum = (double)intnum / 100;
+			return doublenum;
 		} else {
-			return (double)intnum / 100;
+			double doublenum = (double)intnum / 100;
+			return doublenum;
 		}
 	}
 	/* Exponent: This method solves the exponent. 
@@ -247,12 +232,12 @@ public class Calculate {
 			return "no real roots";
 		} 
 		else if(Calculate.discriminant(a, b, c) == 0) { 
-			root1 = (double)(-b/(2*a));
+			root1 = (-b/(2*a));
 			return "" + root1;
 		}
 		else{
-			root1 = Calculate.round2((double)(-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
-			root2 = Calculate.round2((double)(-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			root1 = Calculate.round2((-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			root2 = Calculate.round2((-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
 			if (root1>root2){
 				return root2 + " and " + root1;
 			}

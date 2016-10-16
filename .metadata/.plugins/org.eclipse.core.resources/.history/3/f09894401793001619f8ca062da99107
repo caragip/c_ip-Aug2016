@@ -130,7 +130,7 @@ public class Calculate {
 	/* Max3: This method finds the largest of the three numbers.
 	 * It accepts three integers and returns an integer.
 	 */
-	public static int max3(int num1, int num2, int num3) {
+	public static double max3(double num1, double num2, double num3) {
 		if (num1 > num2 && num1 > num3) {
 			return num1;
 		} else if (num2 > num1 &&  num2> num3) {
@@ -235,12 +235,12 @@ public class Calculate {
 			return "no real roots";
 		} 
 		else if(Calculate.discriminant(a, b, c) == 0) { 
-			root1 = Calculate.round2((-1*b + Calculate.discriminant(a, b, c)) / 2*a);
+			root1 = (-b/(2*a));
 			return "" + root1;
 		}
 		else{
-			root1 = Calculate.round2(b + Calculate.discriminant(a, b, c)) / 2*a);
-			root2 = Calculate.round2(b - Calculate.discriminant(a, b, c)) / 2*a);
+			root1 = Calculate.round2((-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
+			root2 = Calculate.round2((-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
 			if (root1>root2){
 				return root2 + " and " + root1;
 			}
