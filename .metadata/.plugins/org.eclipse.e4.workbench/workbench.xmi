@@ -3,7 +3,7 @@
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie4.java&quot; tooltip=&quot;Magpie4/src/Magpie4.java&quot;>&#xA;&lt;persistable path=&quot;/Magpie4/src/Magpie4.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MagpieRunner4.java&quot; tooltip=&quot;Magpie4/src/MagpieRunner4.java&quot;>&#xA;&lt;persistable path=&quot;/Magpie4/src/MagpieRunner4.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie3.java&quot; tooltip=&quot;Magpie3/src/Magpie3.java&quot;>&#xA;&lt;persistable path=&quot;/Magpie3/src/Magpie3.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie2.java&quot; tooltip=&quot;MagPie2/src/Magpie2.java&quot;>&#xA;&lt;persistable path=&quot;/MagPie2/src/Magpie2.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie4.java&quot; tooltip=&quot;/Users/caraip/Downloads/Magpie4/src/Magpie4.java&quot;>&#xA;&lt;persistable uri=&quot;file:/Users/caraip/Downloads/Magpie4/src/Magpie4.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MagpieRunner3.java&quot; tooltip=&quot;Magpie3/src/MagpieRunner3.java&quot;>&#xA;&lt;persistable path=&quot;/Magpie3/src/MagpieRunner3.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DoMath.java&quot; tooltip=&quot;Access Calculate/src/DoMath.java&quot;>&#xA;&lt;persistable path=&quot;/Access Calculate/src/DoMath.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Calculate.java&quot; tooltip=&quot;Calculate Library/src/Calculate.java&quot;>&#xA;&lt;persistable path=&quot;/Calculate Library/src/Calculate.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MagpieRunner2.java&quot; tooltip=&quot;MagPie2/src/MagpieRunner2.java&quot;>&#xA;&lt;persistable path=&quot;/MagPie2/src/MagpieRunner2.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ProcessingNumbers.java&quot; tooltip=&quot;Collaborative Programming Exercise/src/ProcessingNumbers.java&quot;>&#xA;&lt;persistable path=&quot;/Collaborative Programming Exercise/src/ProcessingNumbers.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FtoC.java&quot; tooltip=&quot;TempConvert/src/FtoC.java&quot;>&#xA;&lt;persistable path=&quot;/TempConvert/src/FtoC.java&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_LXrFwIDcEeabReQCKlsO8g" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_LXrFwYDcEeabReQCKlsO8g" label="%trimmedwindow.label.eclipseSDK" x="383" y="67" width="1054" height="615">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_LXrFwIDcEeabReQCKlsO8g" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_LXrFwYDcEeabReQCKlsO8g" label="%trimmedwindow.label.eclipseSDK" x="226" y="67" width="1054" height="615">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -155,7 +155,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_d_2F4JTUEeauqtay7gNJcQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Magpie4.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie4.java&quot; partName=&quot;Magpie4.java&quot; title=&quot;Magpie4.java&quot; tooltip=&quot;Magpie4/src/Magpie4.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Magpie4/src/Magpie4.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;6206&quot; selectionTopPixel=&quot;3642&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Magpie4.java&quot; partName=&quot;Magpie4.java&quot; title=&quot;Magpie4.java&quot; tooltip=&quot;Magpie4/src/Magpie4.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Magpie4/src/Magpie4.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;8071&quot; selectionTopPixel=&quot;3642&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -402,7 +402,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_LXrtloDcEeabReQCKlsO8g" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_2l65MJTTEeauqtay7gNJcQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_LXx0qIDcEeabReQCKlsO8g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_GRQPAJTnEeaB1o2anRwLng" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_LXx0qIDcEeabReQCKlsO8g"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_LXrto4DcEeabReQCKlsO8g" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -426,7 +426,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_LXsUIYDcEeabReQCKlsO8g" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_2l_KoJTTEeauqtay7gNJcQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_LXx0H4DcEeabReQCKlsO8g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_GRaAAJTnEeaB1o2anRwLng" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_LXx0H4DcEeabReQCKlsO8g"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_LXsULIDcEeabReQCKlsO8g" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -823,7 +823,7 @@
       <tags>platform:cocoa</tags>
       <parameters xmi:id="_zi4s4oKGEeajTtxZC3hJuw" elementId="org.eclipse.ui.views.showView.viewId" name="org.eclipse.ui.views.showView.viewId" value="org.eclipse.ui.console.ConsoleView"/>
     </bindings>
-    <bindings xmi:id="_2JI2kZTTEeauqtay7gNJcQ" keySequence="COMMAND+CTRL+F" command="_LXybIoDcEeabReQCKlsO8g"/>
+    <bindings xmi:id="_FYeM4JTnEeaB1o2anRwLng" keySequence="COMMAND+CTRL+F" command="_LXybIoDcEeabReQCKlsO8g"/>
   </bindingTables>
   <bindingTables xmi:id="_LXtiSoDcEeabReQCKlsO8g" elementId="org.eclipse.ui.textEditorScope" bindingContext="_LXti54DcEeabReQCKlsO8g">
     <bindings xmi:id="_LXtiS4DcEeabReQCKlsO8g" keySequence="ALT+ARROW_DOWN" command="_LXxz0YDcEeabReQCKlsO8g"/>
@@ -1011,7 +1011,7 @@
     <bindings xmi:id="_zirRgoKGEeajTtxZC3hJuw" keySequence="COMMAND+SHIFT+O" command="_LXwmkYDcEeabReQCKlsO8g"/>
   </bindingTables>
   <bindingTables xmi:id="_LXtiwIDcEeabReQCKlsO8g" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_LXtjCIDcEeabReQCKlsO8g">
-    <bindings xmi:id="_2JJdoJTTEeauqtay7gNJcQ" keySequence="M1+W" command="_LXybJIDcEeabReQCKlsO8g"/>
+    <bindings xmi:id="_FYez8JTnEeaB1o2anRwLng" keySequence="M1+W" command="_LXybJIDcEeabReQCKlsO8g"/>
   </bindingTables>
   <bindingTables xmi:id="_LXtiwYDcEeabReQCKlsO8g" bindingContext="_LXtjDoDcEeabReQCKlsO8g"/>
   <bindingTables xmi:id="_LXtiwoDcEeabReQCKlsO8g" bindingContext="_LXtjD4DcEeabReQCKlsO8g"/>
