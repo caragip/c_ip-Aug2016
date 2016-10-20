@@ -248,16 +248,16 @@ public class Calculate {
 		} 
 		else if(Calculate.discriminant(a, b, c) == 0) { 
 			root1 = (double)(-b/(2*a));
-			return "" + String.format("%.2f", root1);
+			return "" + root1;
 		}
 		else{
 			root1 = Calculate.round2((double)(-b + Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
 			root2 = Calculate.round2((double)(-b - Calculate.sqrt(Calculate.discriminant(a, b, c))) / 2*a);
 			if (root1>root2){
-				return String.format("%.2f", root2) + " and " + String.format("%.2f", root1);
+				return root2 + " and " + root1;
 			}
 			else{
-				return String.format("%.2f", root1) + " and " + String.format("%.2f", root2);
+				return root1 + " and " + root2;
 			}
 		}
 		
