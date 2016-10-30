@@ -1,0 +1,96 @@
+import java.util.*;
+public class Split 
+{
+
+	public static void main(String[] args) {
+		split("applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		splitWithSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese");
+		//String.split();
+		//It's a method that acts on a string, <StringName>.split(<String sp>);
+		//Where sp is the string where the string splits
+		//And it returns an array
+		// Example: "I like apples!".split(" "); 
+		//		it will split at spaces and return an array of ["I","like","apples!"]
+		// Example 2: "I really like really red apples"split("really")
+		//		it will split at the word "really" and return an array of ["I "," like "," apples!"]
+		
+		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
+		
+		
+		//Your task:
+		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
+		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
+		 * What if it's a fancy sandwich with multiple pieces of bread?
+		*/
+		public static void split(String sandwich){
+			
+			if (sandwich.indexOf("bread")<0){
+				System.out.println("Not a sandwich!");
+			}
+			
+			//One slice of bread
+			String bread = sandwich.substring(sandwich.indexOf("bread")+5);
+			if (bread.indexOf("bread")<0){
+				System.out.println("Not a sandwich!");
+			}
+			
+			int slices = 1;
+			while (bread.indexOf("bread") >= 0){
+				bread = bread.substring(bread.indexOf("bread")+5);
+				slices++;
+				
+			}
+			
+			//puts ingredients in an array
+			String [] inside = sandwich.split("bread");
+			
+			
+			//if sandwich has stuff before first bread and ends in bread take all ingredients after the first element
+			if ((sandwich.indexOf("bread")>0) && (bread.equals("")) ){
+				for (int i = 1; i < inside.length; i++){
+					System.out.print(inside[i]);
+				}
+			}
+			
+			//if sandwich begins in bread and ends in bread
+			else if (bread.equals("")){
+				for (int i = 0; i < inside.length; i++){
+					System.out.print(inside[i]);
+				}
+			}
+			
+			//if a sandwich has stuff before and after the boundary slices take all ingredients between first and last element 
+			else if (sandwich.indexOf("bread")>0){
+				for (int i = 1; i < inside.length-1; i++){
+					System.out.print(inside[i]);
+				}
+			}
+			
+			//if a sandwich begins in bread and has stuff after the last slice take all ingredients before last element 
+			else {
+				for (int i = 0; i < inside.length-1; i++){
+					System.out.print(inside[i]);
+				}
+			}
+			System.out.println();	
+			
+		}
+		
+		
+		//Your task pt 2:
+		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
+		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
+		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
+		*/
+
+		public static void splitWithSpaces (String sandwich){
+			//take out the spaces in the sandwich string
+			String [] nospacesandwich = sandwich.split("  ");
+			
+			//split method to find ingredients
+			split(Arrays.toString(nospacesandwich));
+		}
+
+	}
+
+}

@@ -1,0 +1,106 @@
+import java.util.*;
+
+//Cara Ip
+//APCS Period 1
+// October 29, 2016
+//String Split finds all the ingredients inside a sandwich.
+
+public class StringSplit 
+{
+
+	public static void main(String[] args) 
+	{
+		//prints the ingredients between the slices of bread in a sandwich
+		split("breadapplesbreadlettusbreadtomatobaconmayohambreadcheese");
+		//prints the ingredients between the slices of bread in a spaced sandwich 
+		splitWithSpaces("apples pineapples bread lettus tomato bacon mayo ham bread cheese");
+		
+	}
+	
+	public static void split (String sandwich){
+		
+		//sandwich with no bread
+		if (sandwich.indexOf("bread")<0){
+			System.out.println("not a sandwich!");
+		} else {
+		
+		//one slice of bread after 
+		String bread = sandwich.substring(sandwich.indexOf("bread")+5);
+		if (bread.indexOf("bread")<0){
+			System.out.println("not a sandwich!");
+		}
+
+		
+		//puts the ingredients in an array
+		String [] ingredients = sandwich.split("bread");
+		
+		
+		//ingredients before first slice of bread
+		if ((sandwich.indexOf("bread")>0) && (bread.equals("")) ){
+			for (int i = 1; i < ingredients.length; i++){
+				System.out.print(ingredients[i]);
+			}
+		}
+		
+		//ingredients in between two slices of bread
+		else if (bread.equals("")){
+			for (int i = 0; i < ingredients.length; i++){
+				System.out.print(ingredients[i]);
+			}
+		}
+		
+		//ingredients before and after slices of bread
+		else if (sandwich.indexOf("bread")>0){
+			for (int i = 1; i < ingredients.length-1; i++){
+				System.out.print(ingredients[i]);
+			}
+		}
+		
+		//starts with bread, has ingredients after last bread
+		else {
+			for (int i = 0; i < ingredients.length-1; i++){
+				System.out.print(ingredients[i]);
+			}
+		}
+		System.out.println();	
+		
+	}
+}
+	public static void splitWithSpaces (String sandwich){
+		//take out the spaces in the sandwich
+		String [] nospacesandwich = sandwich.split("  ");
+		split(Arrays.toString(nospacesandwich));
+	}
+	
+}
+
+		//String.split();
+		//It's a method that acts on a string, <StringName>.split(<String sp>);
+		//Where sp is the string where the string splits
+		//And it returns an array
+		// Example: "I like apples!".split(" "); 
+		//		it will split at spaces and return an array of ["I","like","apples!"]
+		// Example 2: "I really like really red apples".split("really")
+		//		it will split at the word "really" and return an array of ["I "," like "," red apples!"]
+		
+		//play around with String.split! what happens if you "I really really like apples".split("really") ?
+		
+		
+		//Your task:
+		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
+		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
+		 * What if it's a fancy sandwich with multiple pieces of bread?
+		*/
+		
+		
+		//Your task pt 2:
+		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
+		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
+		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
+		*/
+
+		
+
+
+
+
