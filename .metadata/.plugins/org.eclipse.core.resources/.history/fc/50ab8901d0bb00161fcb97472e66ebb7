@@ -1,0 +1,174 @@
+package fracCalc;
+import java.util.*;
+
+public class FracCalc {
+
+
+    public static void main(String[] args) 
+    {
+    	Scanner userInput = new Scanner (System.in);
+    	System.out.println("Enter your expression.");
+    	String inputString = userInput.nextLine();
+    	
+    	while (!inputString.equals("quit")){
+    		System.out.println(produceAnswer(inputString));
+    		System.out.println("Enter your expression.");
+        	inputString = userInput.nextLine();        	
+    	}
+    	
+
+    }
+    
+    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
+    // This function takes a String 'input' and produces the result
+    //
+    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
+    //      e.g. input ==> "1/2 + 3/4"
+    //        
+    // The function should return the result of the fraction after it has been calculated
+    //      e.g. return ==> "1_1/4"
+    
+    public static String produceAnswer(String input)
+    {     	
+    	String operand = "";
+    	String operator = "";
+    	String operand2 = "";
+    	// split into parts through each operator
+    	if (input.indexOf(" +") > 0){
+        	operand =  input.substring(0, input.indexOf(" +"));
+        	operator = "+";
+        	operand2 = input.substring(input.indexOf("+ ")+2);
+        		}
+        	else if (input.indexOf(" -") > 0){
+            	operand =  input.substring(0, input.indexOf(" -"));
+            	operator = "-";
+            	operand2 = input.substring(input.indexOf("- ")+2);
+            	}
+        	else if (input.indexOf(" *") > 0){
+            	operand =  input.substring(0, input.indexOf(" *"));
+            	operator = "*";
+            	operand2 = input.substring(input.indexOf("* ")+2);
+            	}
+        	else {
+            	operand =  input.substring(0, input.indexOf(" /"));
+            	operator = "/";
+            	operand2 = input.substring(input.indexOf("/ ")+2);
+            	}
+    	int [] parsed1 = FracCalc.parseOperand(operand);
+    	int numerator1 =  parsed1 [0];
+    	int denominator1 = parsed1 [1];
+    	int wholeNumber1 = parsed1 [2];
+    	
+    	int [] parsed2 = FracCalc.parseOperand(operand2);
+    	int numerator2 =  parsed2 [0];
+    	int denominator2 = parsed2 [1];
+    	int wholeNumber2 = parsed2 [2];
+    	
+    	
+    	String calculateAnswer = FracCalc.Calculate(numerator1, denominator1, wholeNumber1, numerator1, denominator2, wholeNumber2, operator);
+
+        return calculateAnswer;
+    }
+    
+ public static int[] parseOperand(String operand) {
+		//integer
+	 int numerator;
+	 int denominator;
+	 int wholeNumber;
+		if (!(operand.indexOf("/")>0)){
+			wholeNumber = Integer.parseInt(operand);
+			numerator = 0;
+			denominator = 1;
+		}
+		else if (!(operand.indexOf("_")>0) && (operand.indexOf("/")>0)){
+		//splitting just a fraction
+			wholeNumber = 0;
+			numerator = Integer.parseInt(operand.substring(0, operand.indexOf("/")));
+			denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+		}
+		else {
+		//splitting the mixed number	
+			wholeNumber = Integer.parseInt(operand.substring(0,operand.indexOf("_")));
+			numerator = Integer.parseInt(operand.substring(operand.indexOf("_")+1, operand.indexOf("/")));
+			denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+		}
+    	
+    	//returns parsed parts
+       int [] parsedParts = new int [3];
+       parsedParts[0] = numerator;
+       parsedParts[1] = denominator;
+       parsedParts[2] = wholeNumber;
+       return parsedParts;
+  
+    }
+ public static String Calculate(int wholeNumber1, int numerator1, int denominator1, int wholeNumber2, int numerator2, int denominator2, String operator){
+ 	//takes in inputs and performs calculations
+ 	String calculateAnswer = " ";
+ 	
+ 	//changes to improper fractions
+ 	int improperNumerator1;
+ 	if (wholeNumber1 < 0){
+ 		wholeNumber1 *= -1;
+ 		improperNumerator1 = -1 *(wholeNumber1*denominator1+numerator1);
+ 	}
+ 	else {
+ 		improperNumerator1 = wholeNumber1*denominator1+numerator1;
+ 	}
+ 	
+ 	int impropDenominator1 = denominator1;
+ 	
+ 	int impropNumerator2;
+ 	if (wholeNumber2 < 0){
+ 		wholeNumber2 *= -1;
+ 		impropNumerator2 = -1 *(wholeNumber2*denominator2+numerator2);
+ 	}
+ 	else{
+ 		impropNumerator2 = wholeNumber2*denominator2+numerator2;
+ 	}
+
+ 	int improperDenominator2 = denominator2;
+ 	
+ 	if (operator.equals("+") || operator.equals("-")){
+ 		calculateAnswer = FracCalc.addOrSubtract(operator, improperNumerator1,impropDenominator1, impropNumerator2,improperDenominator2);
+ 	}
+ 	else if (operator.equals("*")){
+ 		calculateAnswer = FracCalc.multiply(improperNumerator1,impropDenominator1, impropNumerator2,improperDenominator2);
+ 	}
+ 	else {
+ 		calculateAnswer = FracCalc.divide(improperNumerator1,impropDenominator1, impropNumerator2,improperDenominator2);
+ 	}    	
+ 	
+		return calculateAnswer;
+ }
+ 
+ public static String addOrSubtract(String operator, int impropNumeratorOne,int impropDenominatorOne, int impropNumeratorTwo, int impropDenominatorTwo){
+ 	int commonDenominator = impropDenominatorOne * impropDenominatorTwo;
+ 	if (operator.equals("+")) {
+ 		int sumNumerator = (impropNumeratorOne*impropDenominatorTwo)+ (impropNumeratorTwo*impropDenominatorOne);	
+ 		return sumNumerator + "/" + commonDenominator;
+ 	} else {
+ 		int sumNumerator = (impropNumeratorOne*impropDenominatorTwo) - (impropNumeratorTwo*impropDenominatorOne);	
+ 		return sumNumerator + "/" + commonDenominator;
+ 	}
+ }
+ 
+ public static String multiply(int impropNumeratorOne,int impropDenominatorOne, int impropNumeratorTwo, int impropDenominatorTwo){
+ 	int productDenominator = impropDenominatorOne * impropDenominatorTwo;
+ 	int productNumerator = impropNumeratorOne * impropNumeratorTwo;
+ 	return productNumerator + "/" + productDenominator;
+ }
+ 
+ public static String divide(int impropNumeratorOne,int impropDenominatorOne, int impropNumeratorTwo, int impropDenominatorTwo){
+ 	int quotientDenominator = impropDenominatorOne * impropNumeratorTwo;
+ 	int quotientNumerator = impropNumeratorOne * impropDenominatorTwo;
+ 	return quotientNumerator + "/" + quotientDenominator;
+ }
+    
+    
+  
+} 
+ // don't forget to reduce 0
+
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    
+
