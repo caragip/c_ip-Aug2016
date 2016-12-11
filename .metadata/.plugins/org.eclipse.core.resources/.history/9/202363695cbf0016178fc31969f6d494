@@ -1,0 +1,222 @@
+// Cara Ip
+// APCS 1st Period
+// FracCalc accepts a user expression with whole numbers, fractions, and mixed numbers
+// and calculates the expression given the operator. 
+
+
+package fracCalc;
+import java.util.*;
+
+public class FracCalc {
+
+    public static void main(String[] args) 
+    {
+    	// creates the Scanner for user input
+    	Scanner userExpression = new Scanner (System.in);
+    	System.out.println("Enter your expression.");
+    	String expressionString = userExpression.nextLine();
+    	// accepts input until user quits
+    	while (!expressionString.equals("quit")){
+    		if (expressionString.indexOf("/0") >0){
+    			//error handling, extra credit: cannot divide by zero, undefined
+       			System.out.println("ERROR: Cannot divide by zero.");
+    		}
+    		//error handling, extra credit: cannot accept invalid format input of ++,--,**, //
+       		else if (expressionString.indexOf("++") >0 || expressionString.indexOf("--") >0 ||expressionString.indexOf("**") >0 || expressionString.indexOf("//") >0){
+       			System.out.println("ERROR: Input is an invalid format.");
+       		} else {
+       		System.out.println(produceAnswer(expressionString));
+       		}
+    		//keeps asking for input until quit
+       		System.out.println("Enter another expression.");
+        	expressionString = userExpression.nextLine();        	
+    	}
+    }
+    
+    // this method calculates the expression two operands at a time from left to right
+    public static String produceAnswer(String expression) {  
+    	String [] parts = expression.split(" ");
+    	String operand2 = "";
+    	String operand = "";
+    	String operator = "";
+    	int counter = 0;
+    	String finalAnswer = parts[0];
+    	//the loop separates into two parts to calculate then calculates the rest of the expressions
+    	while (counter <= parts.length-3) {
+    		operand = finalAnswer;
+    		operand = parts[counter+1]; // first fractio
+    		operand2 = parts[counter+2]; // second fraction
+    		finalAnswer = separateAndCall(operand2, operand, operator);
+        	counter += 2;
+    	}
+    	return finalAnswer;
+    }
+    
+    //
+    public static String separateAndCall(String operand2, String operand, String operator) {
+ 
+    	
+    	//stores each the three elements of each operand in an array, for both fractional expressions
+    	
+    	int [] parsed1 = parseOperand(operand);
+    	int numerator1 =  parsed1 [0];
+    	int denominator1 = parsed1 [1];
+    	int wholeNumber1 = parsed1 [2];
+    	
+    	// calls parseOperand to parse into numerator, denominator, whole number
+   
+    	int [] parsed2 = parseOperand(operand2);
+    	int numerator2 =  parsed2 [0];
+    	int denominator2 = parsed2 [1];
+    	int wholeNumber2 = parsed2 [2];
+ 
+    	// calls calculate function on parsed parts
+    	String calculateAnswer = Calculate(numerator1, denominator1, wholeNumber1, numerator2, denominator2, wholeNumber2, operator);
+    
+        return calculateAnswer;
+    }
+    
+ public static int[] parseOperand(String operand) {
+	 
+		int numerator = 0;
+    	int denominator = 1;
+    	int wholeNumber = 0;
+    	
+		//parsing an integer
+		if (!(operand.indexOf("/")>0)){
+			wholeNumber = Integer.parseInt(operand);
+		}
+		
+		//parsing a fraction, normal and improper
+		else if (!(operand.indexOf("_")>0) && (operand.indexOf("/")>0)){
+			numerator = Integer.parseInt(operand.substring(0, operand.indexOf("/")));
+			denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+		}
+		else {
+		//parsing a mixed number
+			wholeNumber = Integer.parseInt(operand.substring(0,operand.indexOf("_")));
+			numerator = Integer.parseInt(operand.substring(operand.indexOf("_")+1, operand.indexOf("/")));
+			denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+		}
+    	
+    	//returns parsed parts in the form of int arrays
+       int [] parsedParts = new int [3];
+       parsedParts[0] = numerator;
+       parsedParts[1] = denominator;
+       parsedParts[2] = wholeNumber;
+       return parsedParts;
+  
+    }
+ 
+ public static String Calculate(int numerator1, int denominator1, int wholeNumber1, int numerator2, int denominator2, int wholeNumber2, String operator){
+
+ 	String calculateAnswer = " ";
+ 	int improperNumerator1;
+ 	int improperNumerator2;
+ 	
+ 	//changes to improper fractions, both operands
+ 	if (wholeNumber1 < 0){
+ 		wholeNumber1 *= -1;
+ 		improperNumerator1 = -1 *(wholeNumber1*denominator1+numerator1);
+ 	}
+ 	else {
+ 		improperNumerator1 = wholeNumber1*denominator1+numerator1;
+ 	}
+ 	
+ 	int improperDenominator1 = denominator1;
+ 	if (wholeNumber2 < 0){
+ 		wholeNumber2 *= -1;
+ 		improperNumerator2 = -1 *(wholeNumber2*denominator2+numerator2);
+ 	}
+ 	else{
+ 		improperNumerator2 = wholeNumber2*denominator2+numerator2;
+ 	}
+
+ 	int improperDenominator2 = denominator2;
+ 	
+ 	int answerNumerator;
+ 	int commonDenomintor = denominator1 * denominator2;
+	int quotientDenominator = denominator1 * improperNumerator2;
+ 	
+ 	//checks for operator and calls on correct method 
+ 	if (operator.equals("+") || operator.equals("-")){
+ 		answerNumerator = addOrSubtract(operator, improperNumerator1,denominator1, improperNumerator2,denominator2);
+		calculateAnswer = reduce(answerNumerator, commonDenomintor );
+ 	
+	}else if (operator.equals("*")){
+		answerNumerator = multiply(improperNumerator1, denominator1, improperNumerator2,denominator2);
+		calculateAnswer = reduce(answerNumerator, commonDenomintor );
+	}
+	else {
+		answerNumerator = divide(improperNumerator1,denominator1, improperNumerator2,denominator2);
+		calculateAnswer = reduce(answerNumerator,quotientDenominator);
+	}   
+
+	return calculateAnswer;
+}
+ 
+ public static String reduce(int finalNumerator, int finalDenominator) {
+	 int x = abs(finalNumerator);
+	 int y = abs(finalDenominator);
+	 int gcf = 1;
+	 while (y > 0) {
+		 gcf = y;
+		 y = x % y;
+		 x = gcf;
+	 }
+	 	finalNumerator /= gcf;
+	 	finalDenominator /= gcf;
+	 	
+    	if (finalNumerator % finalDenominator == 0){
+           	//formats return answer for integer
+    		return finalNumerator/finalDenominator + "";
+    	}
+    	else if (finalNumerator / finalDenominator != 0 ){
+    		//formats return answer for mixed number
+    		return finalNumerator/finalDenominator + "_" + abs(finalNumerator) % abs(finalDenominator) + "/" + abs(finalDenominator);
+    	}
+    	else {
+			//formats answer for simple fraction
+    		if (finalDenominator<0) {
+    			finalNumerator *= -1;
+    		}
+    		return finalNumerator + "/" + abs(finalDenominator);
+    	}
+ }
+ 
+ 	public static int abs (int value) {
+ 		//finds the absolute value method for gcf
+ 		int answer = value;
+		if (value < 0){
+			answer = -value;
+		}
+		return answer;
+	}
+ 
+ 
+ //method adds or subtracts fractions
+ public static int addOrSubtract(String operator, int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){
+    //add
+	 if (operator.equals("+")) {
+    		int sumNumerator = (improperNumerator1*improperDenominator2)+ (improperNumerator2*improperDenominator1);
+    		return sumNumerator;
+    //subtract
+	 } else {
+    		int sumNumerator = (improperNumerator1*improperDenominator2) - (improperNumerator2*improperDenominator1);
+    		return sumNumerator;
+    }
+ }
+ // method multiplies fractions
+public static int multiply(int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){
+	int productNumerator = improperNumerator1 * improperNumerator2;
+	return productNumerator;
+}
+ 
+//method divides fractions
+public static int divide(int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){
+	int quotientNumerator = improperNumerator1 * improperDenominator2;
+	return quotientNumerator;
+}
+    
+} 
+

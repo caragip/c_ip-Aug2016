@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FracCalcTestCheckpoint3" project="FracCalc" tests="27" started="27" failures="0" errors="0" ignored="0">
+  <testsuite name="fracCalc.FracCalcTestCheckpoint3" time="0.004">
+    <testcase name="testCheckpoint3_SubtractionWithNegatives3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.001"/>
+    <testcase name="testCheckpoint3_AdditionImproperFractionsAndReductions2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationWithNegatives2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationWithNegatives6" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_AdditionCombined4" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_SubtractionCombined2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_AdditionWithNegatives4" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_AdditionWholeNumbers2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_AdditionWholeNumbers7" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionWithZero5" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionWithZero6" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionBasic1" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionBasic2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_AdditionSimple3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationCombined1" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationCombined2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationBasic10" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionWithNegatives5" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionWithNegatives6" classname="fracCalc.FracCalcTestCheckpoint3" time="0.001"/>
+    <testcase name="testCheckpoint3_MultiplicationByZero2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationByZero3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationByZero4" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionCombined2" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_DivisionCombined3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationBasic1" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_MultiplicationBasic3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+    <testcase name="testCheckpoint3_SubtractionSimple3" classname="fracCalc.FracCalcTestCheckpoint3" time="0.0"/>
+  </testsuite>
+</testrun>

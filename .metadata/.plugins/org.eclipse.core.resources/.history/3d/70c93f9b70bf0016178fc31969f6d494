@@ -1,0 +1,220 @@
+// Cara Ip
+// APCS 1st Period
+// FracCalc accepts a user expression with whole numbers, fractions, and mixed numbers
+// and calculates the expression given the operator. 
+
+package fracCalc;
+import java.util.*;
+
+public class FracCalc {
+
+	public static void main(String[] args) {
+    	Scanner userInput = new Scanner (System.in);
+    	System.out.println("Enter an expression.");
+    	String inputString = userInput.nextLine();
+    	
+       	while (!inputString.equals("quit")){
+       		//error handling, extra credit: zero in the denominator is invalid
+       		if (inputString.indexOf("/0") >0){
+       			System.out.println("ERROR: Cannot devide by zero.");
+       		}
+       		//error handling, extra credit: cannot process invalid input with ++,--,**, //
+       		else if (inputString.indexOf("++") >0 || inputString.indexOf("--") >0 ||inputString.indexOf("**") >0 || inputString.indexOf("//") >0){
+       			System.out.println("ERROR: Input is an invalid format.");
+       		}
+       		else{
+       			System.out.println(produceAnswer(inputString));
+       		}  
+       		// continually accepts user input until quit
+       		System.out.println("Enter in another fraction string");
+	        inputString = userInput.nextLine();        	
+        }
+    }	    
+	
+	public static String produceAnswer(String input)
+    {	// this method can take in multiple fraction inputs and evaluates the answer 2 at a time
+    	
+		//separates into 2 operands and operator
+    	String [] parsedParts = input.split(" ");
+    	String operand = "";
+    	String operator = "";
+    	String operand2 = "";
+    	int i = 0;
+    	String finalAnswer = parsedParts[0];
+    	//the loop separates the string to calculate 2 numbers at a time, and replaces the first operand each time with the previous answer
+    	while (i <= parsedParts.length-3){
+        	operand = finalAnswer;
+        	operator = parsedParts[i+1];
+        	operand2 = parsedParts[i+2];
+        	finalAnswer = callAndSeparate(operand2, operand, operator);
+        	i += 2;
+    	}
+    	return finalAnswer;
+    	  
+    }
+    
+    public static String callAndSeparate(String operand2, String operand, String operator){
+    	//this method calculates the answer to 2 operands
+    	
+    	//parses the first operand
+    	int [] parsed1 = FracCalc.parseOperands(operand);
+    	int numerator1 =  parsed1 [0];
+    	int denominator1 = parsed1 [1];
+    	int wholeNumber1 = parsed1 [2];
+    	
+    	//parses the second operand
+    	int [] parsed2 = FracCalc.parseOperands(operand2);
+    	int numerator2 =  parsed2 [0];
+    	int denominator2 = parsed2 [1];
+    	int wholeNumber2 = parsed2 [2];
+    	
+    	//call calculate to evaluate
+    	String calculateAnswer = FracCalc.Calculate(numerator1, denominator1, wholeNumber1, numerator2, denominator2, wholeNumber2, operator);
+    
+        return calculateAnswer;
+    }
+    
+    public static int[] parseOperands(String operand){
+    //this method separates each operand into the whole number, numerator, and denominator       
+    	int numerator = 0;
+    	int denominator = 1;
+    	int wholeNumber = 0;
+    	
+    	if (!(operand.indexOf("/")>0)){
+    		//integer
+    		wholeNumber = Integer.parseInt(operand);
+    		}
+    	else if (!(operand.indexOf("_")>0) && (operand.indexOf("/")>0)){
+    		//fraction
+    		numerator = Integer.parseInt(operand.substring(0, operand.indexOf("/")));
+    		denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+    		}
+    	else {
+    		//mixed number	
+    		numerator = Integer.parseInt(operand.substring(operand.indexOf("_")+1, operand.indexOf("/")));
+    		denominator = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
+    		wholeNumber = Integer.parseInt(operand.substring(0,operand.indexOf("_")));
+    		}  
+    	
+    	//method returns the parts as elements of an array
+    	int[] parsedParts = new int[3];
+    	parsedParts [0] = numerator;
+    	parsedParts [1] = denominator;
+    	parsedParts [2] = wholeNumber;
+    	return parsedParts;
+    }
+    
+    public static String Calculate(int numerator1, int denominator1, int wholeNumber1, int numerator2, int denominator2, int wholeNumber2, String operator){
+    	//this method takes in parsed parts and does the calculations
+    	String calculateAnswer = " ";
+    	int improperNumerator1;
+    	int improperNumerator2;
+    	
+    	//changes into improper fractions	
+    	if (wholeNumber1 < 0){
+    		wholeNumber1 *= -1;
+    		improperNumerator1 = -1 *(wholeNumber1*denominator1+numerator1);
+    	}
+    	else {
+    		improperNumerator1 = wholeNumber1*denominator1+numerator1;
+    	}
+    	if (wholeNumber2 < 0){
+    		wholeNumber2 *= -1;
+    		improperNumerator2 = -1 *(wholeNumber2*denominator2+numerator2);
+    	}
+    	else{
+    		improperNumerator2 = wholeNumber2*denominator2+numerator2;
+    	}
+    	
+    	int answerNumerator;
+    	int commonDenominator = denominator1 * denominator2;
+    	int quotientDenominator = denominator1 * improperNumerator2;
+    	
+    	//calls method depending on operator for correct operation
+    	if (operator.equals("+") || operator.equals("-")){  		
+    		answerNumerator = addOrSubtract(operator, improperNumerator1,denominator1, improperNumerator2,denominator2);
+    		calculateAnswer = reduce(answerNumerator,commonDenominator);
+    	//}
+    	//else if (operator.equals("-")){
+    		//answerNumerator = subtract(improperNumerator1,denominator1, improperNumerator2,denominator2);
+    		//calculateAnswer = reduce(answerNumerator,commonDenominator);
+    	}
+    	else if (operator.equals("*")){
+    		answerNumerator = multiply(improperNumerator1,denominator1, improperNumerator2,denominator2);
+    		calculateAnswer = reduce(answerNumerator,commonDenominator);
+    	}
+    	else {
+    		answerNumerator = divide(improperNumerator1,denominator1, improperNumerator2,denominator2);
+    		calculateAnswer = reduce(answerNumerator,quotientDenominator);
+    	}   
+
+		return calculateAnswer;
+    }
+    
+    public static String reduce (int answerNumerator, int answerDenominator){
+    	//reduces the fraction by calculating the greatest common factor
+    	int x = abs(answerNumerator);
+    	int y = abs(answerDenominator);
+    	int gcf = 1;
+    	while (y > 0){
+    		gcf = y;
+    		y = x % y;
+    		x = gcf;
+    	}
+    	answerNumerator /= gcf;
+    	answerDenominator /= gcf;
+
+    	if (answerNumerator % answerDenominator == 0){
+           	//integer form
+    		return answerNumerator/answerDenominator + "";
+    	}
+    	else if (answerNumerator / answerDenominator != 0 ){
+    		//mixed number form
+    		return answerNumerator/answerDenominator + "_" + abs(answerNumerator) % abs(answerDenominator) + "/" + abs(answerDenominator);
+    	}
+    	else {
+			//fraction form
+    		if (answerDenominator<0) {
+    			answerNumerator *= -1;
+    		}
+    		return answerNumerator + "/" + abs(answerDenominator);
+    	}
+    }
+    
+	public static int abs (int value){
+		//absolute value method for gcf
+		int answer = value;
+		if (value < 0){
+			answer = -1 * value;
+		}
+		return answer;
+	}
+	
+	//adding or subtracting method
+    public static int addOrSubtract(String operator, int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){   	
+    	if (operator.equals("+")) {
+    		int sumNumerator = (improperNumerator1*improperDenominator2)+ (improperNumerator2*improperDenominator1);
+    		return sumNumerator;
+    	}else {
+    		int sumNumerator = (improperNumerator1*improperDenominator2) - (improperNumerator2*improperDenominator1);
+    		return sumNumerator;
+    	}
+    }
+    //subtracting method
+    public static int subtract(int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){   	
+    	int sumNumerator = (improperNumerator1*improperDenominator2)- (improperNumerator2*improperDenominator1);
+    	return sumNumerator;
+    }
+    //multiplying method
+    public static int multiply(int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){
+    	int productNumerator = improperNumerator1 * improperNumerator2;
+    	return productNumerator;
+    }
+    //dividing method
+    public static int divide(int improperNumerator1,int improperDenominator1, int improperNumerator2, int improperDenominator2){ 	
+    	int quotientNumerator = improperNumerator1 * improperDenominator2;
+    	return quotientNumerator;
+    }
+}
+
+

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="FracCalcTestCheckpoint1" project="FracCalc" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="fracCalc.FracCalcTestCheckpoint1" time="0.0">
-    <testcase name="testCheckpoint1_1" classname="fracCalc.FracCalcTestCheckpoint1" time="0.0"/>
-    <testcase name="testCheckpoint1_2" classname="fracCalc.FracCalcTestCheckpoint1" time="0.0"/>
-    <testcase name="testCheckpoint1_3" classname="fracCalc.FracCalcTestCheckpoint1" time="0.0"/>
-  </testsuite>
-</testrun>
