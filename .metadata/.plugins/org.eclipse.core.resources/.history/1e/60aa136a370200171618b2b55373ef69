@@ -1,0 +1,25 @@
+package textExcel;
+public class SpreadsheetLocation implements Location
+{
+	
+    private String location;
+	public int getRow() {
+		
+		int row = Integer.parseInt(location.substring(1));
+        return row - 1;
+    }
+
+    public int getCol()
+    {
+    	//return the index of where the letter is-ASCII table
+    	int col = location.charAt(0);
+    	int ascii = (int)col;
+    	return ascii;
+    }
+    
+    public SpreadsheetLocation(String cellName)
+    {
+        location = cellName;
+    }
+
+}

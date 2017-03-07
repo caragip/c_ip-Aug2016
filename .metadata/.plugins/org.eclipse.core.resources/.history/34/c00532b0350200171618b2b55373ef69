@@ -1,0 +1,23 @@
+package textExcel;
+
+public class SpreadsheetLocation implements Location
+{
+	
+    private String location;
+	public int getRow() {
+		
+		int row = Integer.parseInt(location.substring(1));
+        return row - 1;
+    }
+
+    public int getCol()
+    {
+    	return col;
+    }
+    
+    public SpreadsheetLocation(String cellName)
+    {
+        location = cellName;
+    }
+
+}
