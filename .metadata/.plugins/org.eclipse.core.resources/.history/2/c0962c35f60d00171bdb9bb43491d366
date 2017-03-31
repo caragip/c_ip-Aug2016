@@ -1,0 +1,27 @@
+package textExcel;
+
+public class FormulaCell implements Cell {
+
+	private String text;
+	
+	public FormulaCell(String text) {
+		super (text);
+		this.text = text;
+		
+	}
+	
+	public String abbreviatedCellText() {
+		String abv = text;
+		abv += "          ";
+		return abv.substring(0,10);
+	}
+
+	public String fullCellText() {
+		return text;
+	}
+
+
+public double GetValue (String text){
+	return Double.parseDouble(text);
+}
+}

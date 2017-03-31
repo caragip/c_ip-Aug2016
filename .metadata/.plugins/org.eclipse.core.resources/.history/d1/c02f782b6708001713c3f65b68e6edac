@@ -1,0 +1,106 @@
+package textExcel;
+
+
+public class Spreadsheet implements Grid
+{
+	
+	private Cell [] [] textexcel;
+	public Spreadsheet () {
+		textexcel = new Cell [12] [20];
+		for (int i = 0; i < 12; i++){
+			for (int j = 0; j< 20; j++){
+				textexcel [i][j] = new EmptyCell();
+			}
+		}
+		
+	}
+	
+	
+	public String processCommand(String command) {
+		
+		if (command.length()==0){
+			return "";
+		}
+		
+		String [] input = command.split(" ",3);
+
+		if (input[0].toLowerCase().equals("clear")){
+			// clear cell
+			clearCell(input);
+			return getGridText();
+		}
+		
+		else if (input.length > 2){
+			//assign value
+			setCell(input);
+			return getGridText();
+		}
+		
+		else {
+			//inspect cell
+			SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
+			return getCell(placeholder).fullCellText();
+		}
+		
+
+	
+	
+	public int getRows()
+	{
+		return 20;
+	}
+
+
+	public int getCols()
+	{
+		return 12;
+	}
+
+	public Cell getCell(Location loc)
+	{
+		return textexcel [loc.getCol()] [loc.getRow()];
+		
+	}
+
+	public String getGridText()
+	{		
+		String topline = "   ";
+		for (char i = 'A'; i <= 'L'; i++){
+			topline += "|" + i + "         ";	
+		}
+		topline += "|";
+		
+		String fulltext = "\n";
+		
+		for (int j = 0; j < 20; j++ ){
+			fulltext += ((j+1) + "   ").substring(0, 3);
+			fulltext += "|";
+			for (int k = 0; k < 12; k++){
+				fulltext += textexcel[k][j].abbreviatedCellText() + "|";
+			}			
+			fulltext += "\n";
+		}
+		return topline+fulltext;
+	}
+	
+	public void clearCell (String [] input){
+		if (input.length > 1){
+			SpreadsheetLocation placeholder = new SpreadsheetLocation(input[1].toUpperCase());
+			textexcel [placeholder.getCol()] [placeholder.getRow()] = new EmptyCell ();
+		}
+		else {
+			for (int j = 0; j < 20; j++ ){
+				for (int k = 0; k < 12; k++){
+					textexcel[k][j] = new EmptyCell();
+				}			
+			}
+		}
+
+	}
+	
+	public void setCell (String [] input){
+		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
+		String words = input[2].substring(1, (input[2].length()-1));
+		textexcel [placeholder.getCol()] [placeholder.getRow()] = new TextCell (words);
+	}
+}

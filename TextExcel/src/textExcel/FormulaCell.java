@@ -2,16 +2,25 @@ package textExcel;
 
 public class FormulaCell implements Cell {
 
-	@Override
+	private String text;
+	
+	public FormulaCell(String text) {
+		this.text = text;
+		
+	}
+	
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
-		return null;
+		String abv = text;
+		abv += "          ";
+		return abv.substring(0,10);
 	}
 
-	@Override
 	public String fullCellText() {
-		// TODO Auto-generated method stub
-		return null;
+		return text;
 	}
 
+
+public double GetValue (String text){
+	return Double.parseDouble(text);
+}
 }

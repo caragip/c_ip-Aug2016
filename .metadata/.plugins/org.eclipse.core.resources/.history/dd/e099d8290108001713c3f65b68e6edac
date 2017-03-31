@@ -1,0 +1,84 @@
+package textExcel;
+
+
+public class Spreadsheet implements Grid
+{
+	
+	private Cell [] [] textexcel;
+	public Spreadsheet () {
+		textexcel = new Cell [12] [20];
+		for (int i = 0; i < 12; i++){
+			for (int j = 0; j< 20; j++){
+				textexcel [i][j] = new EmptyCell();
+			}
+		}
+		
+	}
+	
+	
+	public String processCommand(String command) {
+		
+		String [] input = command.split(" ",3);
+		
+		if (input[0].equals("clear")){
+			
+		}
+		
+		else if (input[0].length() >= 8) {
+		
+		}
+		else if (input.length > 2){
+		
+		}
+		
+		else {
+		}
+		
+		return command;
+		}
+		
+
+	
+	
+	public int getRows()
+	{
+		return 20;
+	}
+
+
+	public int getCols()
+	{
+		return 12;
+	}
+
+	public Cell getCell(Location loc)
+	{
+			int row = loc.getRow();
+			int column = loc.getCol();
+			return textexcel [row] [column];
+		
+	}
+
+	public String getGridText()
+	{		
+		String topline = "   ";
+		for (char i = 'A'; i <= 'L'; i++){
+			topline += "|" + i + "         ";	
+		}
+		topline += "|";
+		
+		String fulltext = "\n";
+		
+		for (int j = 0; j < 20; j++ ){
+			fulltext += ((j+1) + "   ").substring(0, 3);
+			fulltext += "|";
+			for (int k = 0; k < 12; k++){
+				fulltext += textexcel[k][j].abbreviatedCellText() + "|";
+			}			
+			fulltext += "\n";
+		}
+		return topline+fulltext;
+	}
+
+
+}

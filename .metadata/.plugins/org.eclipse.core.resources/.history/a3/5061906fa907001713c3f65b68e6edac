@@ -1,0 +1,12 @@
+package textExcel;
+
+public class TextCell {
+	
+	String s;
+	
+	public TextCell (String s){
+		this.s = s;
+	}
+
+
+}
