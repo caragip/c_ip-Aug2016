@@ -1,0 +1,123 @@
+package textExcel;
+
+
+public class Spreadsheet implements Grid
+{
+	
+	private Cell [] [] textexcel;
+	public Spreadsheet () {
+		textexcel = new Cell [12] [20];
+		for (int i = 0; i < 12; i++){
+			for (int j = 0; j< 20; j++){
+				textexcel [i][j] = new EmptyCell(); // creates the 12x20 spreadsheet and fills with empty cells
+			}
+		}
+		
+	}
+	
+	
+	public String processCommand(String command) {
+
+		if (command.length() == 0){
+			return "";
+		}
+		String [] words = command.split(" ",3);
+	//clear cells
+		if(words[0].equalsIgnoreCase("clear")){
+			clearCell(words);
+			return getGridText();
+		}
+	//set cell values
+		if (words.length>2){
+			if (words[1].equals("=")){
+				setCell(words);
+				return getGridText();
+			}
+		}
+	//save files
+		if(words[0].equalsIgnoreCase("save")){
+				return save(words[1]);		
+		}
+	//open files
+		if(words[0].equalsIgnoreCase("open")){
+			return open(words[1]);
+		}
+	//inspect cells
+		SpreadsheetLocation inspectIt = new SpreadsheetLocation(words[0]);
+		return getCell(inspectIt).fullCellText();
+	}
+	
+		
+
+	public int getRows()
+	{
+		return 20;
+	}
+
+
+	public int getCols()
+	{
+		return 12;
+	}
+
+	public Cell getCell(Location loc)
+	{
+		return textexcel [loc.getCol()] [loc.getRow()];
+		
+	}
+
+	public String getGridText() // creates spreadsheet with characters
+	{		
+		String topline = "   ";
+		for (char i = 'A'; i <= 'L'; i++){
+			topline += "|" + i + "         ";	
+		}
+		topline += "|";
+		
+		String full = "\n";
+		
+		for (int j = 0; j < 20; j++ ){
+			full += ((j+1) + "   ").substring(0, 3);
+			full += "|";
+			for (int k = 0; k < 12; k++){
+				full += textexcel[k][j].abbreviatedCellText() + "|";
+			}			
+			full += "\n";
+		}
+		return topline+full;
+	}
+	
+	public void clearCells(String[] clear){
+		if(clear.length == 2){
+			SpreadsheetLocation clearcell = new SpreadsheetLocation(clear[1]);
+			spreadsheet[clearcell.getCol()][clearcell.getRow()] = new EmptyCell();
+		}
+		else{
+			for(int i = 0; i < 12; i++){
+				for (int j = 0; j < 20; j++){
+					spreadsheet[i][j] = new EmptyCell();
+				}
+			}
+		}
+		return;
+
+	
+	public void checkCell (String [] input){
+		String userInput = input[2]; 
+		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
+		if (userInput.charAt(0) == 34){ //text cell takes string
+			//fill the array element with a text cell
+			String words = input[2].substring(1, (input[2].length()-1));
+			textexcel [placeholder.getCol()] [placeholder.getRow()] = new TextCell (words);
+		}
+		else if (userInput.substring(userInput.length()-1).equals("%")){ //if a percent cell
+			textexcel [placeholder.getCol()] [placeholder.getRow()] = new PercentCell (userInput);	
+		}
+		else if (userInput.substring(userInput.length()-1).equals(")")){ //if a formula cell
+			textexcel [placeholder.getCol()] [placeholder.getRow()] = new FormulaCell (userInput);	
+		}
+		else { // value cell
+			textexcel [placeholder.getCol()] [placeholder.getRow()] = new ValueCell (userInput);	
+		}
+}
+}

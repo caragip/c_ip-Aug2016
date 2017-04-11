@@ -3,31 +3,43 @@ package textExcel;
 public class ValueCell extends RealCell implements Cell {
 	
 	private String text;
-	
-	public ValueCell (String text){ 
-		super (text);
-		this.text = text;
-	}
-	
-	public String abbreviatedCellText() {
+	private double doubleValue;
 
-		String abv = getValue(text)+"";
-		abv += "          ";
-		return abv.substring(0,10);
-		
-	}
-
-	public String fullCellText() { // integer to double
-		if (text.indexOf(".")<0){ 
-			return text;
+	public ValueCell(String value){
+		super(value);
+		text = super.fullCellText();
+		if(text.indexOf(".") >= 0 && text.endsWith("00")){
+			while (text.endsWith("00")){
+				text = text.substring(0, text.length()-1);
+			}
+			if(Character.isDigit(text.charAt(text.length()-2))){
+			text = text.substring(0, text.length()-1);
+			}
 		}
-		return getValue(text)+"";
+		doubleValue = Double.parseDouble(value);
+	}
+	public String abbreviatedCellText() {
+		String abv = text;
+		if(abv.length()<=8 && abv.indexOf(".")<0){
+			abv = abv + ".0";
+		}
+		while(abv.length()<10){ // pad
+			abv = abv + " ";
+		}
+		if(abv.length()>10){
+			abv = abv.substring(0, 10); // truncate
+		}
+		return abv;
+	}
+
+	public String fullCellText() {
+		return (text +"");
 	}
 	
-	public double getValue(String text){
-		return super.getDoubleValue(text);
-	}
+	public double getDoubleValue(){
+		return doubleValue;
 	
 
 
+} 
 }

@@ -2,23 +2,26 @@ package textExcel;
 
 public class TextCell implements Cell {
 	
-	String text; 
+	private String text; 
 	
-	public TextCell (String text) {
-		this.text = text;
+	public TextCell (String string) {
+		text = string;
 	}
 
-	@Override
 	public String abbreviatedCellText() {
-		// TODO Auto-generated method stub
 		String abv = text;
-		abv += "          ";
-		return abv.substring(0,10);
+		while(abv.length()<10){
+			abv = abv + " ";
+		}
+		if(abv.length()>10){
+			abv = abv.substring(0, 10);
+		}
+		return abv;
 	}
 
-	@Override
+
 	public String fullCellText() {
-		// TODO Auto-generated method stub
+
 		return "\"" + text + "\"";
 	}
 
