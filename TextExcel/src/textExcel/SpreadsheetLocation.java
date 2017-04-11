@@ -8,15 +8,15 @@ public class SpreadsheetLocation implements Location
    
    public int getRow() {
 		
-    return row - 1;
+    return row - 1; // zero based array
     }
 
     public int getCol()
     {
-    	return col - 65;
+    	return col - 65; // char value to array index
     }
     
-    public SpreadsheetLocation(String cellName)
+    public SpreadsheetLocation(String cellName) // changes location to index
     {
     	col = cellName.charAt(0);
     	row = Integer.parseInt(cellName.substring(1));

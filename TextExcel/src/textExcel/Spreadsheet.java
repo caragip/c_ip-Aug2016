@@ -9,7 +9,7 @@ public class Spreadsheet implements Grid
 		textexcel = new Cell [12] [20];
 		for (int i = 0; i < 12; i++){
 			for (int j = 0; j< 20; j++){
-				textexcel [i][j] = new EmptyCell();
+				textexcel [i][j] = new EmptyCell(); // creates the 12x20 spreadsheet and fills with empty cells
 			}
 		}
 		
@@ -18,20 +18,19 @@ public class Spreadsheet implements Grid
 	
 	public String processCommand(String command) {
 		
-		if (command.length()==0){
+		if (command.length()==0){ // checks for blank input
 			return "";
 		}
 		
-		String [] input = command.split(" ",3);
+		String [] input = command.split(" ",3); // splits the input into the three parts
 
-		if (input[0].toLowerCase().equals("clear")){
+		if (input[0].toLowerCase().equals("clear")){ //clears the cell when input includes clear
 			// clear cell
 			clearCell(input);
 			return getGridText();
 		}
 		
-		else if (input.length > 2){
-			//assign value
+		else if (input.length > 2){ // assign value 
 			checkCell(input);
 			return getGridText();
 		}
@@ -44,8 +43,6 @@ public class Spreadsheet implements Grid
 	}
 		
 
-	
-	
 	public int getRows()
 	{
 		return 20;
@@ -63,7 +60,7 @@ public class Spreadsheet implements Grid
 		
 	}
 
-	public String getGridText()
+	public String getGridText() // creates spreadsheet with characters
 	{		
 		String topline = "   ";
 		for (char i = 'A'; i <= 'L'; i++){
@@ -84,7 +81,7 @@ public class Spreadsheet implements Grid
 		return topline+full;
 	}
 	
-	public void clearCell (String [] input){
+	public void clearCell (String [] input){ // replaces with empty cell 
 		if (input.length > 1){
 			SpreadsheetLocation place = new SpreadsheetLocation(input[1].toUpperCase());
 			textexcel [place.getCol()] [place.getRow()] = new EmptyCell ();
@@ -102,7 +99,8 @@ public class Spreadsheet implements Grid
 	public void checkCell (String [] input){
 		String userInput = input[2]; 
 		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
-		if (userInput.charAt(0) == 34){ //if a text cell, take the string between the quotes and fill the array element with a text cell
+		if (userInput.charAt(0) == 34){ //text cell takes string
+			//fill the array element with a text cell
 			String words = input[2].substring(1, (input[2].length()-1));
 			textexcel [placeholder.getCol()] [placeholder.getRow()] = new TextCell (words);
 		}
@@ -112,7 +110,7 @@ public class Spreadsheet implements Grid
 		else if (userInput.substring(userInput.length()-1).equals(")")){ //if a formula cell
 			textexcel [placeholder.getCol()] [placeholder.getRow()] = new FormulaCell (userInput);	
 		}
-		else { // if a value cell
+		else { // value cell
 			textexcel [placeholder.getCol()] [placeholder.getRow()] = new ValueCell (userInput);	
 		}
 }

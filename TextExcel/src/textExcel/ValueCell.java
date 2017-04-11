@@ -17,8 +17,7 @@ public class ValueCell extends RealCell implements Cell {
 		
 	}
 
-	public String fullCellText() {
-		//integer to double
+	public String fullCellText() { // integer to double
 		if (text.indexOf(".")<0){ 
 			return text;
 		}
